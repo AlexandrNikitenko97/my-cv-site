@@ -1,0 +1,95 @@
+html{
+	height: 100%;
+}
+
+body{
+	font-family: 'Montserrat', sans-serif;
+	background: #ffffff;
+	height: 100%;
+}
+
+/* Sidebar */
+
+#sidebar-wrapper{
+	z-index: 1;
+	position: absolute;
+	width: 50px;
+	min-height: 100%;
+	overflow-y: hidden;
+	background: #372db4;
+}
+
+.sidebar-nav{
+	padding: 0;
+	list-style: none;
+}
+
+.sidebar-nav li{
+	text-align: center;
+}
+
+.sidebar-nav li a{
+	display: none;
+	text-decoration: none;
+	color: #b5b0f7;
+	line-height: 40px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12px;
+}
+
+.sidebar-nav li:first-child a{
+	display: block;
+	font-size: 25px;
+	padding-top:15px;
+	padding-bottom: 15px;
+	color: #b5b0f7;
+}
+
+.sidebar-nav li:first-child:hover a{
+	background: none;
+	color: #b5b0f7;
+}
+
+.sidebar-nav li a:hover{
+	background: #493fc8;
+	color: #ffffff;
+}
+
+.sidebar-logos{
+	margin-top: 20px;
+	font-size: 20px;
+}
+
+.sidebar-items{
+	margin-top: -15px;
+}
+
+/* Main content */
+
+#page-content-wrapper{
+	width: 100%;
+	padding-left: 50px;
+}
+
+/* Change the width of the sidebar to display it */
+
+#wrapper.menuDisplayed #sidebar-wrapper{
+	width: 120px;
+}
+
+#wrapper.menuDisplayed .sidebar-nav li a{
+	display: block;
+	border-bottom: 1px solid #493fc8;
+}
+
+/* Change left padding of the main content and footer to display sidebar */
+
+#wrapper.menuDisplayed #page-content-wrapper{
+	padding-left: 120px;
+}
+
+#wrapper.menuDisplayed #footer-wrapper{
+	padding-left: 120px;
+}
+
+
