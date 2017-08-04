@@ -1,0 +1,115 @@
+{% extends 'main/base.html' %}
+
+{% block title %} About me {% endblock title %}
+
+
+
+{% block content %} 
+
+
+	<div class="about-me-header">
+		<h1> ABOUT ME </h1>
+		<p> I AM ALEXANDR NIKITENKO </p>
+	</div>
+
+	<hr>
+
+	<div class="container-fluid about-me-wrapper">
+		<div class="row">
+			<div class="col-md-4">
+				<img src="../static/main/img/my_photo.jpg" class="img-rounded img-responsive" alt="my photo">
+			</div>
+			<div class="col-md-4 about-me-info">
+				<p><strong>Full name:</strong> Alexandr Nikitenko</p>
+				<p><strong>Address:</strong> Kiev, Ukraine</p>
+				<p><strong>Phone:</strong> +3806334****7</p>
+				<p><strong>Email:</strong> <a href="{% url 'contact:contact' %}">sashanikitenko74@gmail.com</a></p>
+			</div>
+			<div class="col-md-4 about-me-info">
+				<p><strong>Date of Bithday:</strong> 14 March 1997</p>
+				<p><strong>Job:</strong> None</p>
+				<p><strong>Skype:</strong> alex_nikitenko97</p>
+				<p><strong>WebSite:</strong> <a href="">www.a_nikitenko_cv.com</a></p>
+			</div>
+
+			<div class="col-md-8 about-me-text">
+				<hr>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec sem nisi. Donec sollicitudin metus eget libero finibus semper. Pellentesque at efficitur tortor, non iaculis felis. Quisque vel mi finibus, cursus sapien ac, sodales purus. Mauris eu congue nisi. Maecenas ut consectetur diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque fringilla facilisis nulla at fermentum. Vestibulum vitae semper sapien. Duis commodo risus in sapien pretium, at mollis orci ultrices. Aliquam vitae aliquet lectus. Proin iaculis odio quis lorem volutpat, vitae convallis velit vehicula. Aliquam at nulla at odio euismod blandit.</p>
+
+			</div>
+			<div class="col-md-2 about-me-buttons">
+				<a href="{% url 'contact:contact' %}"><button class="btn btn-default">HIRE ME</button></a>
+			</div>
+			<div class="col-md-2 about-me-buttons">
+				<a href="#"><button class="btn btn-default">DOWNLOAD RESUME</button></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="my-skills-wrapper">
+		<div class="my-skills-header">
+			<h1> MY SKILLS </h1>
+			<p> MY OWN ESTIMATE </p>
+		</div>
+
+		<div class="container">
+			<hr>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="my-skills-scales-wrapper">
+					 	<div class="col-md-6">
+					 		
+					 		<p class="scale-top-text">HTML / CSS - 70%</p>
+					 		<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+								    <span class="sr-only">70% Complete</span>
+								</div>
+							</div>
+
+							<p class="scale-top-text">JS / jQuery - 5%</p>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
+								    <span class="sr-only">5% Complete</span>
+								</div>
+							</div>
+
+							<p class="scale-top-text">ReactJS / AngularJS - 0%</p>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+								    <span class="sr-only">0% Complete</span>
+								</div>
+							</div>
+
+					 	</div>
+					 	<div class="col-md-6">
+					 		
+					 		<p class="scale-top-text">Python3 / Python2 (Standard Library) - 85%</p>
+					 		<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
+								    <span class="sr-only">85% Complete</span>
+								</div>
+							</div>
+
+							<p class="scale-top-text">Django Framework - 67%</p>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="width: 67%;">
+								    <span class="sr-only">67% Complete</span>
+								</div>
+							</div>
+
+							<p class="scale-top-text">SQL (MySQL, PostgreSQL, SQLite) - 30%</p>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+								    <span class="sr-only">30% Complete</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+{% endblock content %}

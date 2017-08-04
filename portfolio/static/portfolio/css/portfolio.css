@@ -1,0 +1,86 @@
+/* Portfolio styles */
+
+.portfolio-header{
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+.portfolio-header h1{
+	font-size: 32px;
+}
+
+.portfolio-header p{
+	color: #b5b6b7;
+	font-size: 16px;
+}
+
+.portfolio-list-wrapper{
+	margin-bottom: 50px;
+}
+
+.portfolio-list{
+	padding-top: 15px;
+	padding-bottom: 5px;
+}
+
+.portfolio-navigation{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.portfolio-navigation-button{
+	border-radius: 0;
+	border: 1px solid black;
+	background-color: white;
+	color: black;
+	padding: 10px;
+	font-size: 12px;
+	margin-top: 5px;
+	width: 110px;
+}
+
+.portfolio-navigation-button:hover{
+	background-color: black;
+	color: white;
+}
+
+#portfolio-button{
+	color: black;
+}
+
+.btn-default.active{
+	background: black;
+	color: white;
+}
+
+.portfolio-list a p{
+	text-align: center;
+	position: relative;
+}
+
+.portfolio-list-description{
+	margin-top: 3px;
+	color: white;
+}
+
+.portfolio-list:hover{
+	background-color: black;
+}
+
+.portfolio-list-description p{
+	margin-bottom: -1px;
+}
+
+.portfolio-list-description span{
+	float: right;
+	margin-top: 5px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.portfolio-list-description span a{
+	text-decoration: none;
+	color: white;
+}

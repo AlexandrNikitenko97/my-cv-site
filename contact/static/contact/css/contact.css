@@ -1,0 +1,87 @@
+/* Contacts styles */
+
+.contact-header{
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+.contact-header h1{
+	font-size: 32px;
+}
+
+.contact-header p{
+	color: #b5b6b7;
+	font-size: 16px;
+}
+
+.contacts-alert{
+	margin-top: 30px;
+	margin-bottom: 60px;
+	text-align: center;
+	font-size: 14px;
+	color: #515151;
+}
+
+.contact-field-name-email input{
+	width: 49%;
+	padding: 10px;
+	background-color: white;
+	border: 1px solid grey;
+	margin-top: 10px;
+	border-radius: 0;
+}
+
+.contact-field-subject input{
+	width: 100%;
+	padding: 10px;
+	background-color: white;
+	border: 1px solid grey;
+	border-radius: 0;
+}
+
+.contact-field-text textarea{
+	width: 100%;
+	padding: 10px;
+	background-color: white;
+	border: 1px solid grey;
+	border-radius: 0;
+}
+
+.send-message{
+	margin-top: 20px;
+	margin-bottom: 30px;
+	padding: 15px;
+	border-radius: 0;
+	border: 1px solid black;
+	width: 150px;
+	color: black;
+}
+
+.send-message:hover{
+	background-color: black;
+	color: white;
+}
+
+.contact-info-wrapper{
+	margin-left: 100px;
+	width: 100%;
+}
+
+.contact-info-wrapper h4{
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.address p, .contact-info p{
+	font-size: 14px;
+	color: #8c8c8c;
+}
+
+.social-networks a i{
+	margin-right: 15px;
+}
+
+.social-networks a i:hover{
+	color: blue;
+}

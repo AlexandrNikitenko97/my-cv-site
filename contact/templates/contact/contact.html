@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Contact {% endblock %}
+	
+{% block content %}
+
+	<div class="contact-header">
+		<h1> LET'S TALK</h1>
+		<p>GET IN TOUCH WITH ME</p>
+	</div>
+
+	<hr>
+
+	<div class="container-fluid">
+		<p class="contacts-alert">Please Feel free to get in Touch Anytime, whenever for Work Inquiries of just to say Hello!</p>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="contact-form-wrapper">
+
+					<form action="{% url 'contact:contact' %}" method="post">
+   						{% csrf_token %}
+   						<div class="form-group">	
+	   						<p class="contact-field-name-email">{{ form.name }} &nbsp; {{ form.email }}</p>
+	   						<p class="contact-field-subject">{{ form.subject }}</p>
+	   						<p class="contact-field-text">{{ form.text }}</p>
+   						</div>
+						<input type="submit" class="btn btn-default send-message" value="SEND MESSAGE" id="send-message">
+					</form>
+
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="contact-info-wrapper">
+
+					<div class="address">
+						<h4>ADDRESS</h4>
+						<p>Ukraine, Kiev</p>
+						<p>Solomianska str.</p>
+						<hr>
+					</div>
+
+					<div class="contact-info">
+						<h4>CONTACT INFO</h4>
+						<p>sashanikitenko74@gmail.com</p>
+						<p>+3806334****7</p>
+						<hr>
+					</div>
+
+					<div class="social-networks">
+						<h4>SOCIAL NETWORKS</h4>
+						<a href="https://www.facebook.com/sashka47"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+						<a href="http://vk.com/id65443143"><i class="fa fa-vk fa-2x" aria-hidden="true"></i></a>
+						<a href="#" title="@Ghost_74"><i class="fa fa-telegram fa-2x" aria-hidden="true"></i></a>
+						<hr>
+					</div>
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+{% endblock content%}

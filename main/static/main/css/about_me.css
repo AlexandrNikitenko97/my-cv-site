@@ -1,0 +1,110 @@
+/* Anout me styles */
+
+.about-me-header{
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+.about-me-header h1{
+	font-size: 32px;
+}
+
+.about-me-header p{
+	color: #b5b6b7;
+	font-size: 16px;
+}
+
+.about-me-wrapper{
+	margin-top: 30px;
+	margin-bottom: 100px;
+}
+
+.about-me-info{
+	padding-bottom: 10px;
+}
+
+.about-me-info p{
+	color: #474747;
+}
+
+.about-me-info p strong{
+	color: black;
+}
+
+.about-me-info p a{
+	text-decoration: none;
+}
+
+.about-me-buttons a button{
+	margin-top: 10px;
+	width: 100%;
+	padding: 15px;
+	font-size: 12px;
+	border-radius: 0;
+	border: 1px solid black;
+	color: black;
+	font-weight: bold;
+}
+
+.about-me-buttons a:hover button{
+	background-color : black;
+	border: 1px solid #474747;
+	color: white;
+}
+
+.about-me-text{
+	margin-bottom: 20px;
+	color: #474747;
+}
+
+.about-me-text p {
+	padding-top: 20px;
+}
+
+
+/* My skills styles */
+
+.my-skills-wrapper{
+	background-color: #f1f1f1;
+	padding-bottom: 100px;
+}
+
+.my-skills-wrapper hr{
+	color: #c6c6c6;
+	background-color: #c6c6c6;
+	border: none;
+	height: 1px;
+}
+
+.my-skills-header{
+	text-align: center;
+	padding-top: 50px;
+	margin-bottom: 5px;
+}
+
+.my-skills-header h1{
+	font-size: 32px;
+}
+
+.my-skills-header p{
+	color: #b5b6b7;
+	font-size: 16px;
+}
+
+.my-skills-scales-wrapper{
+	margin-top: 30px;
+}
+
+.scale-top-text{
+	margin-bottom: 5px;
+}
+
+.progress{
+	height: 3px;
+}
+
+.progress-bar{
+	background-color: #3a3a3a;
+}
+

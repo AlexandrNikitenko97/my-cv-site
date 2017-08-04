@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-    	<title>My CV</title>
+    	<title>{% block title %} My CV {% endblock %}</title>
     	<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,52 +15,60 @@
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
     	<!-- CSS -->
-    	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+    	<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    	<link rel="stylesheet" href="{% static 'main/css/about_me.css' %}">
+    	<link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+    	<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+    	<link rel="stylesheet" href="{% static 'portfolio/css/portfolio.css' %}">
 
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+		<!-- Font Awesome icons -->
+		<script src="https://use.fontawesome.com/eacec2fe3f.js"></script>
+
 	</head>
 	<body>
 
 		<div id="wrapper">
-
 		<!-- SideBar -->
 
 			<div id="sidebar-wrapper">
 				<ul class="sidebar-nav">
 					<li id="menu-toggle"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span></a></li>
 					<li>
-						<a href="#"> 
+					{% if not user.is_authenticated %}
+						<a href="{% url 'login' %}?next={{ request.path }}">LogIn</a>
+					{% else %}
+						<a href="{% url 'logout' %}?next={{ request.path }}">LogOut</a>
+					{% endif %}
+					</li>
+					<li>
+						<a href="{% url 'main:home' %}"> 
 						<span class="glyphicon glyphicon-home sidebar-logos"></span>
 						<p class="sidebar-items">HOME</p>
 						</a>
 					</li>
 					<li>
-						<a href="#"> 
+						<a href="{% url 'main:about_me' %}"> 
 						<span class="glyphicon glyphicon-user sidebar-logos"></span>
 						<p class="sidebar-items">ABOUT ME</p>
 						</a>
 					</li>
 					<li>
-						<a href="#"> 
-						<span class="glyphicon glyphicon-briefcase sidebar-logos"></span>
-						<p class="sidebar-items">RESUME</p>
-						</a>
-					</li>
-					<li>
-						<a href="#"> 
+						<a href="{% url 'portfolio:portfolio_list' %}"> 
 						<span class="glyphicon glyphicon-folder-close sidebar-logos"></span>
 						<p class="sidebar-items">PORTFOLIO</p>
 						</a>
 					</li>
 					<li>
-						<a href="#"> 
+						<a href="{% url 'blog:post_list' %}"> 
 						<span class="glyphicon glyphicon-book sidebar-logos"></span>
 						<p class="sidebar-items">BLOG</p>
 						</a>
 					</li>
 					<li>
-						<a href="#"> 
+						<a href="{% url 'contact:contact' %}"> 
 						<span class="glyphicon glyphicon-send sidebar-logos"></span>
 						<p class="sidebar-items">CONTACT</p>
 						</a>
@@ -75,9 +83,12 @@
 			<div id="page-content-wrapper">
 				<div class="content container-fluid">
 					<div class="row">
-						<div class="col-lg-12">
+						<div class="col-lg-12 content">
+
 							{% block content %}
-                    		{% endblock %}
+
+                    		{% endblock content%}
+
 						</div>
 					</div>
 				</div>
@@ -85,8 +96,18 @@
 		<!-- Page Content END -->
 		</div>
 
-		<!-- JS -->
-		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 footer">
+					<p>Made by Alexandr Nikitenko</p>
+					<p>2017 All rights reserved &reg;</p>
+				</div>
+			</div>
+		</div>
 
+		<!-- JS -->
+		<script type="text/javascript" src="{% static 'main/js/main.js' %}"></script>
+		<script type="text/javascript" src="{% static 'blog/js/blog.js' %}"></script>
+		<script type="text/javascript" src="{% static 'portfolio/js/portfolio.js' %}"></script>
 	</body>
 </html>

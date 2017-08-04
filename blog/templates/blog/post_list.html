@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Blog {% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+    <div>
+		<ul class="blog-admin-tools">
+			<li><a href="{% url 'blog:post_add' %}"><span class="glyphicon glyphicon-plus"></span></a></li>
+			<li><a href="{% url 'blog:post_drafts' %}"><span>Drafts</span></a></li>
+		</ul>
+    </div>   
+    {% endif %}
+
+    <h1 class='blog-title'>BLOG</h1>
+
+    <hr>
+
+	
+    <div class="container-fluid">
+       <div class="row post-list-container">
+            {% for post in posts %} 
+                <div class="col-xs-6 col-md-3 post-list">
+                    <a href="{% url 'blog:post_detail' pk=post.pk %}" class="post-list-link">    
+                        <h1 class="post-list-title">{{ post.title }}</h1>
+                        <p class="post-list-date">{{ post.published_date }}</p>
+                        <p class="post-list-text">{{ post.text_preview|linebreaksbr }}</p>
+                        <p class="post-list-comments">Comments: {{ post.comment_set.all.count }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>  
+
+        <div id="pages">
+            <span class="current">
+                Page {{ posts.number }} of {{ posts.paginator.num_pages }}<br>
+            </span>
+            {% if posts.has_previous %}
+                <a href="?page={{ posts.previous_page_number }}" class="btn btn-default btn-xs" role="button" id="page_button">Previous page</a>
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}" class="btn btn-default btn-xs" role="button" id="page_button">Next page</a>
+                {% else %}
+                    <a href="/" class="btn btn-default btn-xs disabled" role="button" id="page_button">Next page</a>
+                {% endif %}
+            {% elif posts.has_next %}
+                <a href="/" class="btn btn-default btn-xs disabled" role="button" id="page_button">Previous page</a>
+                <a href="?page={{ posts.next_page_number }}" class="btn btn-default btn-xs" role="button" id="page_button">Next page</a>
+            {% endif %}
+        </div>
+        
+    </div>
+    
+
+{% endblock content %}
+

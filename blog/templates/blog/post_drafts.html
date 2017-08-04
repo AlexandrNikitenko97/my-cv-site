@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Draft posts {% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 post-draft-list">
+			<h1>List of draft posts:</h1>
+			{% for post in posts %}
+				<a href="{% url 'blog:post_detail' post.pk %}" class="post-draft-list-title">{{ post.title }}</a>
+				<p>{{ post.text_preview | linebreaksbr }}</p>
+				<p class="post-draft-list-created-date">Created date:&nbsp;&nbsp;&nbsp;{{ post.created_date }}</p>
+				<br>
+				<hr>
+			{% empty %}
+				<p class="post-draft-list-empty">Draft list is empty.</p>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
