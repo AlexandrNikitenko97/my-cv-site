@@ -4,7 +4,6 @@
 
 
 {% block content %}
-
 	<div class="portfolio-header">
 		<h1> PORTFOLIO </h1>
 		<p>MY FINISHED PROJECTS</p>
@@ -18,72 +17,31 @@
 			<div class="portfolio-navigation">
 				<div class="row">
 					<div class="col-md-12">
-						<a href="#" class="btn btn-default portfolio-navigation-button active"> ALL PROJECTS </a>
-						<a href="#" class="btn btn-default portfolio-navigation-button"> WEB </a>
-						<a href="#" class="btn btn-default portfolio-navigation-button"> PROGRAMMS </a>
-						<a href="#" class="btn btn-default portfolio-navigation-button"> BOTS </a>
-						<a href="#" class="btn btn-default portfolio-navigation-button"> MOBILE APPS </a>
+						<a href="{% url 'portfolio:portfolio_list' %}" class="btn btn-default portfolio-navigation-button 
+						{% if is_active == 'all_projects' %} active {% endif %}"> ALL PROJECTS </a>
+						<a href="{% url 'portfolio:portfolio_web' %}" class="btn btn-default portfolio-navigation-button {% if is_active == 'web' %} active {% endif %}"> WEB </a>
+						<a href="{% url 'portfolio:portfolio_programs' %}" class="btn btn-default portfolio-navigation-button {% if is_active == 'programs' %} active {% endif %}"> PROGRAMS </a>
+						<a href="{% url 'portfolio:portfolio_bots' %}" class="btn btn-default portfolio-navigation-button {% if is_active == 'bots' %} active {% endif %}"> BOTS </a>
+						<a href="{% url 'portfolio:portfolio_mobile_apps' %}" class="btn btn-default portfolio-navigation-button {% if is_active == 'mobile_apps' %} active {% endif %}"> MOBILE APPS </a>
 					</div>
 				</div>
 			</div>
 
 			<div class="row">
-
+				{% for item in portfolio_list %}
 					<div class="col-md-4 portfolio-list">
-						<a href="#">
-							<img src="../../static/portfolio/img/MyCVsite.png" class="img-responsive" width="100%" height="350">
+						<a href="{% url 'portfolio:portfolio_details' pk=item.pk %}">
+							<img src="{{ item.screen_link }}" class="img-responsive" width="100%" height="300">
 						</a>
 						<div class="portfolio-list-description">
-							<span> <a href="#">Click for detail</a> </span>
-							<p><strong>Name:</strong> MyCVsite</p>
-							<p><strong>Category:</strong> Web</p>
+							<span> <a href="{% url 'portfolio:portfolio_details' pk=item.pk %}">Click for detail</a> </span>
+							<p><strong>Name: </strong>{{ item.name }}</p>
+							<p><strong>Category: </strong>{{ item.category }}</p>
 						</div>
 					</div>
-
-					<div class="col-md-4 portfolio-list">
-						<a href="#">
-							<img src="../../static/portfolio/img/MyCVsite.png" class="img-responsive" width="100%" height="350">
-						</a>
-						<div class="portfolio-list-description">
-							<span> <a href="#">Click for detail</a> </span>
-							<p><strong>Name:</strong> MyCVsite</p>
-							<p><strong>Category:</strong> Web</p>
-						</div>
-					</div>
-
-					<div class="col-md-4 portfolio-list">
-						<a href="#">
-							<img src="../../static/portfolio/img/MyCVsite.png" class="img-responsive" width="100%" height="350">
-						</a>
-						<div class="portfolio-list-description">
-							<span> <a href="#">Click for detail</a> </span>
-							<p><strong>Name:</strong> MyCVsite</p>
-							<p><strong>Category:</strong> Web</p>
-						</div>
-					</div>
-
-					<div class="col-md-4 portfolio-list">
-						<a href="#">
-							<img src="../../static/portfolio/img/MyCVsite.png" class="img-responsive" width="100%" height="350">
-						</a>
-						<div class="portfolio-list-description">
-							<span> <a href="#">Click for detail</a> </span>
-							<p><strong>Name:</strong> MyCVsite</p>
-							<p><strong>Category:</strong> Web</p>
-						</div>
-					</div>
-
-					<div class="col-md-4 portfolio-list">
-						<a href="#">
-							<img src="../../static/portfolio/img/MyCVsite.png" class="img-responsive" width="100%" height="350">
-						</a>
-						<div class="portfolio-list-description">
-							<span> <a href="#">Click for detail</a> </span>
-							<p><strong>Name:</strong> MyCVsite</p>
-							<p><strong>Category:</strong> Web</p>
-						</div>
-					</div>
-
+				{% empty %}
+					<p>Portfolio list is empty</p>
+				{% endfor%}
 			</div>
 			<hr>
 		</div>

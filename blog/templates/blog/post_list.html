@@ -4,15 +4,6 @@
 
 {% block content %}
 
-    {% if user.is_authenticated %}
-    <div>
-		<ul class="blog-admin-tools">
-			<li><a href="{% url 'blog:post_add' %}"><span class="glyphicon glyphicon-plus"></span></a></li>
-			<li><a href="{% url 'blog:post_drafts' %}"><span>Drafts</span></a></li>
-		</ul>
-    </div>   
-    {% endif %}
-
     <h1 class='blog-title'>BLOG</h1>
 
     <hr>

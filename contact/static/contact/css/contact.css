@@ -85,3 +85,79 @@
 .social-networks a i:hover{
 	color: blue;
 }
+
+
+/* Message list slyles */
+
+.message-main-wrapper{
+	height: 100vh;
+}
+
+.empty-messages{
+	text-align: center;
+	color: red;
+	font-size: 40px;
+	margin-top:100px;
+	margin-bottom: 100px;
+}
+
+.messages-title{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.messages-list-wrapper{
+	margin-bottom: 50px;
+}
+
+.messages-list-wrapper a{
+	text-decoration: none;
+	color: #3d3d3d;
+}
+
+.messages-list-wrapper .single-message .row{
+	padding-top: 10px;
+	background-color: #f7f7f7;
+	font-size: 12px;
+}
+
+.messages-list-wrapper .single-message:hover .row{
+	background-color: #c4c4c4;
+	color: #3d3d3d;
+}
+
+.message-main-wrapper #pages{
+	text-align: right;
+}
+
+
+
+/* Message detail styles */
+
+.message-detail-wrapper{
+	height: 100vh;
+}
+
+.well{
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.well .message-author{
+	font-size: 30px;
+}
+
+.message-author strong{
+	text-decoration: underline;
+}
+
+.well .message-send-date{
+	font-size: 16px;
+	color: #8e8e8e;
+	text-align: right;
+}
+
+.message-cover .btn-danger{
+	float: right;
+}

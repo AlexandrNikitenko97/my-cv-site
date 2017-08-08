@@ -9,11 +9,7 @@
 
 		<!-- Bootstrap -->
     	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-    	<!-- JQuery -->
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
+    	
     	<!-- CSS -->
     	<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
     	<link rel="stylesheet" href="{% static 'main/css/about_me.css' %}">
@@ -29,6 +25,37 @@
 
 	</head>
 	<body>
+		{% if user.is_authenticated %}
+			<nav class="navbar navbar-inverse navbar-wrapper">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#all-navigation" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="{% url 'main:home' %}">ADMIN-PANEL</a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="all-navigation">
+			      <ul class="nav navbar-nav">
+			        <li><a href="{% url 'blog:post_add' %}">Blog: Add new post </a></li>
+			        <li><a href="{% url 'blog:post_drafts' %}">Blog: Post Draft list {% if draft_posts.count %} <span class="badge">{{ draft_posts.count }} new</span>{% endif %}</a></li>
+			        <li><a href="{% url 'portfolio:portfolio_add_project' %}">Portfolio: Add new project </a></li>
+			      </ul>
+			      
+			      <ul class="nav navbar-nav navbar-right">
+			      	<li><a href="{% url 'contact:message_list' %}">Messages {% if new_messages.count %} <span class="badge">{{ new_messages.count }} new</span>{% endif %}</a></li>
+			      	<li><a>Signed in as ' {{ user.username }} '</a></li>
+			        <li><a href="{% url 'logout' %}?next={{ request.path }}" title='logout'><span class="glyphicon glyphicon-off logout"></span></a></li>
+			      </ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+		{% endif %}
 
 		<div id="wrapper">
 		<!-- SideBar -->
@@ -36,13 +63,6 @@
 			<div id="sidebar-wrapper">
 				<ul class="sidebar-nav">
 					<li id="menu-toggle"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span></a></li>
-					<li>
-					{% if not user.is_authenticated %}
-						<a href="{% url 'login' %}?next={{ request.path }}">LogIn</a>
-					{% else %}
-						<a href="{% url 'logout' %}?next={{ request.path }}">LogOut</a>
-					{% endif %}
-					</li>
 					<li>
 						<a href="{% url 'main:home' %}"> 
 						<span class="glyphicon glyphicon-home sidebar-logos"></span>
@@ -73,6 +93,11 @@
 						<p class="sidebar-items">CONTACT</p>
 						</a>
 					</li>
+					<li>
+						{% if not user.is_authenticated %}
+							<a href="{% url 'login' %}?next={{ request.path }}" title="login"><span class="glyphicon glyphicon-lock"></span></a>
+						{% endif %}
+					</li>
 				</ul>
 			</div>
 
@@ -87,7 +112,7 @@
 
 							{% block content %}
 
-                    		{% endblock content%}
+                    		{% endblock content %}
 
 						</div>
 					</div>
@@ -95,19 +120,28 @@
 			</div>
 		<!-- Page Content END -->
 		</div>
-
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12 footer">
-					<p>Made by Alexandr Nikitenko</p>
-					<p>2017 All rights reserved &reg;</p>
+		{% block footer %}
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12 footer">
+						<p>Made by Alexandr Nikitenko</p>
+						<p>2017 All rights reserved &reg;</p>
+					</div>
 				</div>
 			</div>
-		</div>
+		{% endblock footer %}
 
+
+
+
+		<!-- JQuery -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<!-- Bootstrap -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<!-- JS -->
 		<script type="text/javascript" src="{% static 'main/js/main.js' %}"></script>
 		<script type="text/javascript" src="{% static 'blog/js/blog.js' %}"></script>
 		<script type="text/javascript" src="{% static 'portfolio/js/portfolio.js' %}"></script>
+		<script type="text/javascript" src="{% static 'contact/js/contact.js' %}"></script>
 	</body>
 </html>

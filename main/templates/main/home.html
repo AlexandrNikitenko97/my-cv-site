@@ -1,9 +1,39 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
+	<div class="home-wrapper">
+		<div class="home-header">
+			<span class="glyphicon glyphicon-arrow-left" id="start-arrow"></span>
+			<p> GET STARTED </p>
+		</div>
 
-	<div class="home">
-		<img src="../static/main/img/home.jpg">
+		<div class="container-fluid">
+			<div class="row home-first-row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="panel panel-default" id='panel'>
+					  	<div class="panel-body home-hello">
+					    	<span class="after">HELLO!</span>
+					 	 </div>
+					</div>
+				</div>
+			</div>
+			<div class="row home-second-row">
+				<div class="col-md-12">
+					<div class="panel panel-default" id='panel'>
+					  	<div class="panel-body home-text">
+					    	<span>&nbsp;&nbsp;&nbsp;I'M ALEX NIKITENKO...</span>
+					 	 </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 
+
 {% endblock content %}
+
+
+{% block footer %}
+
+{% endblock footer %}

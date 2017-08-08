@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+
+{% block title %} {{ message.subject }} {% endblock %}
+	
+{% block content %}
+
+	<div class="container message-detail-wrapper">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="well well-lg message-cover">	
+				<a class="btn btn-danger" href="{% url 'contact:message_delete' message.pk%}" onclick="return confirm('Are you sure you want to delete this message?');"><span class="glyphicon glyphicon-remove"></span></a>
+					<p class='message-author'>Message by <strong>{{ message.name }}</strong></p>
+
+					<div class="panel panel-default">
+					  	<div class="panel-body">
+					    	<strong>Email: </strong>{{ message.email }}
+					  	</div>
+					</div>
+
+					<div class="panel panel-default">
+					  	<div class="panel-body">
+					    	<strong>Subject: </strong>{{ message.subject }}
+					  	</div>
+					</div>
+
+					<div class="panel panel-default">
+					  	<div class="panel-body">
+					    	<strong>Message: </strong> <br><br> {{ message.text }}
+					  	</div>
+					</div>
+
+					<p class='message-send-date'>Sent: {{ message.send_date }}</p>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
+
+
+
+{% block footer %}
+{% endblock footer %}

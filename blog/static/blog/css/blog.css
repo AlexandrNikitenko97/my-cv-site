@@ -16,6 +16,10 @@
 	font-size: 15px;
 }
 
+.blog-admin-tools li a:hover{
+	color: black;
+}
+
 .blog-admin-tools li:first-child a{
 	margin-left: 0;
 }
@@ -43,7 +47,6 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
-	min-height: 100%;
 }
 
 .post-list{
@@ -201,6 +204,7 @@
 
 .post-draft-list{
 	text-align: justify;
+	height: 100vh;
 }
 
 .post-draft-list h1{

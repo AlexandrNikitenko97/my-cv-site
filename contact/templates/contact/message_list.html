@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Messages {% if new_messages %}({{ new_messages.count }} new) {% endif %}{% endblock %}
+	
+{% block content %}
+	
+	<div class="container message-main-wrapper">
+		<div class="row">
+			<h1 class="messages-title"> PRIVATE MESSAGES </h1>
+			{% if messages %}
+				<div id="pages">
+				   	<span id="current-page">Page {{ messages.number }} of {{ messages.paginator.num_pages }}</span>
+				    {% if messages.has_previous %}
+				        <a href="?page={{ messages.previous_page_number }}" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-menu-left"></span></a>
+				        {% if messages.has_next %}
+				            <a href="?page={{ messages.next_page_number }}" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-menu-right"></span></a>
+				        {% else %}
+					        <a href="/" class="btn btn-default btn-xs disabled" role="button"><span class="glyphicon glyphicon-menu-right"></span></a>
+				        {% endif %}
+			        {% elif messages.has_next %}
+			            <a href="/" class="btn btn-default btn-xs disabled" role="button"><span class="glyphicon glyphicon-menu-left"></span></a>
+			            <a href="?page={{ messages.next_page_number }}" class="btn btn-default btn-xs" role="button"><span class="glyphicon glyphicon-menu-right"></span></a>
+			        {% endif %}
+			    </div>			
+			{% endif %}
+			<div class="col-md-12 messages-list-wrapper">
+
+				{% for message in messages %}
+					<a href="{% url 'contact:message_detail' pk=message.pk %}" class="single-message">
+					{% if not message.is_read %}<strong>{% endif %}
+						<div class="row">
+							<div class="col-md-2">
+								<p>{{ message.name }}</p>
+							</div>
+							<div class="col-md-3">
+								<p>{{ message.email }}</p>
+							</div>
+							<div class="col-md-5">
+								<p>Re: {{ message.subject }}</p>
+							</div>
+							<div class="col-md-2">
+								<p>{{ message.send_date }}</p>
+							</div>
+						</div>
+					{% if not message.is_read %}</strong>{% endif %}
+					</a>
+				{% empty %}
+					<p class="empty-messages"> No any message </p>
+				{% endfor %}
+
+			</div>
+		</div>
+	</div>
+
+{% endblock content%}
+
+
+{% block footer %}
+{% endblock footer %}

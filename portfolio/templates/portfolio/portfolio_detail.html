@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+
+{% block title %} {{ portfolio_item.name }} {% endblock title%}
+
+
+{% block content %}
+	
+	<div class="portfolio-detail-header">
+		<h1> {{ portfolio_item.name }} </h1>
+		<p>DETAILS OF THE PROJECT</p>
+	</div>
+
+	{% if user.is_authenticated %}
+          <div class="portfolio-detail-admin-tools">
+            <a class="btn btn-warning" href="{% url 'portfolio:portfolio_edit_project' pk=portfolio_item.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-danger" href="{% url 'portfolio:portfolio_delete_project' pk=portfolio_item.pk %}" onclick="return confirm('Are you sure you want to delete this project?');"><span class="glyphicon glyphicon-remove"></span></a>
+          </div>
+    {% endif %}
+
+	<hr>
+
+	<div class="portfolio-detail-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<h3>PROJECT DESCRIPTION</h3>
+					<p class="portfolio-detail-description"> {{ portfolio_item.description }} </p>
+
+					<hr>
+
+					<h5>PROJECT DETAILS:</h5>
+					<div class="portfolio-detail-project-details">
+						<p><strong>Author:</strong> {{ portfolio_item.creator }}</p>
+						<p><strong>Catrgory:</strong> {{ portfolio_item.category }}</p>
+						<p><strong>Technologies:</strong> {{ portfolio_item.technologies }}</p>
+						<p><strong>Project link:</strong> <a href="{{ portfolio_item.project_link }}"> &nbsp; {{ portfolio_item.name }}</a></p>
+						<p><strong>Source code:</strong> &nbsp; <a href="{{ portfolio_item.source_code_link }}"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a></p>
+						<p><strong>Year:</strong> {{ portfolio_item.date.year }}</p>
+						<hr>
+						<a class="btn btn-default portfolio-contact-author" href="{% url 'contact:contact' %}">Contact the author</a>
+					</div>
+				</div>
+			
+				<div class="col-md-7">
+					<img src="{{ portfolio_item.screen_link }}" width="100%" height="400px" class="img-responsive img-rounded">
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}

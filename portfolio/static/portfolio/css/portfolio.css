@@ -67,6 +67,8 @@
 
 .portfolio-list:hover{
 	background-color: black;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
 
 .portfolio-list-description p{
@@ -83,4 +85,133 @@
 .portfolio-list-description span a{
 	text-decoration: none;
 	color: white;
+}
+
+.portfolio-list-description span a:hover{
+	color: grey;
+}
+
+
+/* Portfolio detail styles */
+
+
+.portfolio-detail-header{
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+.portfolio-detail-header h1{
+	font-size: 32px;
+	text-transform: uppercase;
+}
+
+.portfolio-detail-header p{
+	color: #b5b6b7;
+	font-size: 16px;
+}
+
+.portfolio-detail-wrapper{
+	margin-top: 20px;
+	margin-bottom: 70px;
+	text-align: center;
+}
+
+.portfolio-detail-description{
+	text-align: justify;
+	padding-top: 10px;
+	color: #666666;
+}
+
+.portfolio-detail-wrapper h5{
+	float: left;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+.portfolio-detail-project-details{
+	float: left;
+	clear: both;
+	text-align: left;
+	color: #666666;
+}
+
+.portfolio-detail-project-details p{
+	padding-top: 5px;
+}
+
+.portfolio-detail-project-details a{
+	text-decoration: none;
+	color: black;
+}
+
+.portfolio-contact-author{
+	padding: 10px;
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+	border-radius: 0;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.portfolio-contact-author:hover{
+	background-color: black;
+	color: white;
+}
+
+.portfolio-detail-wrapper img{
+	box-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+/* Add new project to portfolio */
+
+.portfolio-add-project{
+	float: right;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+.portfolio-add-project a{
+	text-decoration: none;
+	color: grey;
+}
+
+.portfolio-add-project a:hover{
+	color: black;
+}
+
+
+.portfolio-add-project-title{
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.portfolio-add-fields{
+	text-align: center;
+}
+
+.portfolio-add-fields input{
+	width: 50%;
+}
+
+.portfolio-add-fields textarea{
+	width: 50%;
+}
+
+.portfolio-add-fields select{
+	width: 50%;
+}
+
+.add-project{
+	margin-bottom: 30px;
+	margin-top: 10px;
+	width: 50%
+}
+
+/* Portfolio admin tools */
+
+.portfolio-detail-admin-tools{
+	text-align: right;
 }
